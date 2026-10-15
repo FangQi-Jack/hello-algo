@@ -115,26 +115,29 @@ int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
+    // 佇列長度為 1 時, 頭尾指向同一節點
+    if (deque->queSize == 1) {
+        val = deque->front->val;
+        delDoublyListNode(deque->front); // 指向同一節點，釋放其一即可
+        deque->front = NULL;
+        deque->rear = NULL;
+    }
     // 佇列首出列操作
-    if (isFront) {
+    else if (isFront) {
         val = peekFirst(deque); // 暫存頭節點值
         DoublyListNode *fNext = deque->front->next;
-        if (fNext) {
-            fNext->prev = NULL;
-            deque->front->next = NULL;
-            delDoublyListNode(deque->front);
-        }
+        fNext->prev = NULL;
+        deque->front->next = NULL;
+        delDoublyListNode(deque->front);
         deque->front = fNext; // 更新頭節點
     }
     // 佇列尾出列操作
     else {
         val = peekLast(deque); // 暫存尾節點值
         DoublyListNode *rPrev = deque->rear->prev;
-        if (rPrev) {
-            rPrev->next = NULL;
-            deque->rear->prev = NULL;
-            delDoublyListNode(deque->rear);
-        }
+        rPrev->next = NULL;
+        deque->rear->prev = NULL;
+        delDoublyListNode(deque->rear);
         deque->rear = rPrev; // 更新尾節點
     }
     deque->queSize--; // 更新佇列長度

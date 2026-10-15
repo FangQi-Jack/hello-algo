@@ -129,9 +129,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
         right: TreeNode | null; // 右子節點指標
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height; 
-            this.left = left === undefined ? null : left; 
-            this.right = right === undefined ? null : right; 
+            this.height = height === undefined ? 0 : height;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
         }
     }
     ```
@@ -180,7 +180,7 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 
     ```c title=""
     /* AVL 樹節點結構體 */
-    TreeNode struct TreeNode {
+    typedef struct TreeNode {
         int val;
         int height;
         struct TreeNode *left;
@@ -205,22 +205,27 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
     ```kotlin title=""
     /* AVL 樹節點類別 */
     class TreeNode(val _val: Int) {  // 節點值
-        val height: Int = 0          // 節點高度
-        val left: TreeNode? = null   // 左子節點
-        val right: TreeNode? = null  // 右子節點
+        var height: Int = 0          // 節點高度
+        var left: TreeNode? = null   // 左子節點
+        var right: TreeNode? = null  // 右子節點
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
+    ### AVL 樹節點類別 ###
+    class TreeNode
+      attr_accessor :val    # 節點值
+      attr_accessor :height # 節點高度
+      attr_accessor :left   # 左子節點引用
+      attr_accessor :right  # 右子節點引用
 
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
+      def initialize(val)
+        @val = val
+        @height = 0
+      end
+    end
     ```
 
 “節點高度”是指從該節點到它的最遠葉節點的距離，即所經過的“邊”的數量。需要特別注意的是，葉節點的高度為 $0$ ，而空節點的高度為 $-1$ 。我們將建立兩個工具函式，分別用於獲取和更新節點的高度：
@@ -237,7 +242,7 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
 ```
 
-!!! note
+!!! tip
 
     設平衡因子為 $f$ ，則一棵 AVL 樹的任意節點的平衡因子皆滿足 $-1 \le f \le 1$ 。
 

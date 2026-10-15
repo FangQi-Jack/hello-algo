@@ -31,7 +31,7 @@
     ```python title="hash_map.py"
     # 初始化雜湊表
     hmap: dict = {}
-    
+
     # 新增操作
     # 在雜湊表中新增鍵值對 (key, value)
     hmap[12836] = "小哈"
@@ -39,11 +39,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鴨"
-    
+
     # 查詢操作
     # 向雜湊表中輸入鍵 key ，得到值 value
     name: str = hmap[15937]
-    
+
     # 刪除操作
     # 在雜湊表中刪除鍵值對 (key, value)
     hmap.pop(10583)
@@ -54,7 +54,7 @@
     ```cpp title="hash_map.cpp"
     /* 初始化雜湊表 */
     unordered_map<int, string> map;
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈";
@@ -62,11 +62,11 @@
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鴨";
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map[15937];
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.erase(10583);
@@ -77,19 +77,19 @@
     ```java title="hash_map.java"
     /* 初始化雜湊表 */
     Map<Integer, String> map = new HashMap<>();
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
-    map.put(12836, "小哈");   
-    map.put(15937, "小囉");   
-    map.put(16750, "小算");   
+    map.put(12836, "小哈");
+    map.put(15937, "小囉");
+    map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鴨");
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     String name = map.get(15937);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583);
@@ -108,11 +108,11 @@
         { 13276, "小法" },
         { 10583, "小鴨" }
     };
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map[15937];
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.Remove(10583);
@@ -123,7 +123,7 @@
     ```go title="hash_map_test.go"
     /* 初始化雜湊表 */
     hmap := make(map[int]string)
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     hmap[12836] = "小哈"
@@ -131,11 +131,11 @@
     hmap[16750] = "小算"
     hmap[13276] = "小法"
     hmap[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     name := hmap[15937]
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     delete(hmap, 10583)
@@ -146,7 +146,7 @@
     ```swift title="hash_map.swift"
     /* 初始化雜湊表 */
     var map: [Int: String] = [:]
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈"
@@ -154,11 +154,11 @@
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map[15937]!
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.removeValue(forKey: 10583)
@@ -176,11 +176,11 @@
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鴨');
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map.get(15937);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.delete(10583);
@@ -200,12 +200,12 @@
     map.set(10583, '小鴨');
     console.info('\n新增完成後，雜湊表為\nKey -> Value');
     console.info(map);
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     let name = map.get(15937);
     console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.delete(10583);
@@ -240,7 +240,7 @@
 
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
-    
+
     /* 初始化雜湊表 */
     let mut map: HashMap<i32, String> = HashMap::new();
 
@@ -272,7 +272,7 @@
     ```kotlin title="hash_map.kt"
     /* 初始化雜湊表 */
     val map = HashMap<Int,String>()
-    
+
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈"
@@ -280,11 +280,11 @@
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鴨"
-    
+
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     val name = map[15937]
-    
+
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.remove(10583)
@@ -293,18 +293,29 @@
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 初始化雜湊表
+    hmap = {}
 
-    ```
+    # 新增操作
+    # 在雜湊表中新增鍵值對 (key, value)
+    hmap[12836] = "小哈"
+    hmap[15937] = "小囉"
+    hmap[16750] = "小算"
+    hmap[13276] = "小法"
+    hmap[10583] = "小鴨"
 
-=== "Zig"
+    # 查詢操作
+    # 向雜湊表中輸入鍵 key ，得到值 value
+    name = hmap[15937]
 
-    ```zig title="hash_map.zig"
-
+    # 刪除操作
+    # 在雜湊表中刪除鍵值對 (key, value)
+    hmap.delete(10583)
     ```
 
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%A9%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E8%BC%B8%E5%85%A5%E9%8D%B5%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%AA%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 雜湊表有三種常用的走訪方式：走訪鍵值對、走訪鍵和走訪值。示例程式碼如下：
 
@@ -476,7 +487,7 @@
 
     // 單獨走訪鍵 Key
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
     // 單獨走訪值 Value
@@ -512,18 +523,20 @@
 === "Ruby"
 
     ```ruby title="hash_map.rb"
+    # 走訪雜湊表
+    # 走訪鍵值對 key->value
+    hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-    ```
+    # 單獨走訪鍵 key
+    hmap.keys.each { |key| puts key }
 
-=== "Zig"
-
-    ```zig title="hash_map.zig"
-
+    # 單獨走訪值 value
+    hmap.values.each { |val| puts val }
     ```
 
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%96%B0%E5%A2%9E%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E9%9B%9C%E6%B9%8A%E8%A1%A8%E4%B8%AD%E6%96%B0%E5%A2%9E%E9%8D%B5%E5%80%BC%E5%B0%8D%20%28key%2C%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%9B%89%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B4%A8%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%9B%9C%E6%B9%8A%E8%A1%A8%0A%20%20%20%20%23%20%E8%B5%B0%E8%A8%AA%E9%8D%B5%E5%80%BC%E5%B0%8D%20key-%3Evalue%0A%20%20%20%20for%20key%2C%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%2C%20%22-%3E%22%2C%20value%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E9%8D%B5%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%96%AE%E7%8D%A8%E8%B5%B0%E8%A8%AA%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ## 雜湊表簡單實現
 
@@ -534,7 +547,7 @@
 輸入一個 `key` ，雜湊函式的計算過程分為以下兩步。
 
 1. 透過某種雜湊演算法 `hash()` 計算得到雜湊值。
-2. 將雜湊值對桶數量（陣列長度）`capacity` 取模，從而獲取該 `key` 對應的陣列索引 `index` 。
+2. 將雜湊值對桶數量（陣列長度）`capacity` 取模，從而獲取該 `key` 對應的桶（陣列索引）`index` 。
 
 ```shell
 index = hash(key) % capacity

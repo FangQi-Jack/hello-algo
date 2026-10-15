@@ -52,7 +52,7 @@ index = hash(key) % capacity
 
 观察发现，每种哈希算法的最后一步都是对大质数 $1000000007$ 取模，以确保哈希值在合适的范围内。值得思考的是，为什么要强调对质数取模，或者说对合数取模的弊端是什么？这是一个有趣的问题。
 
-先抛出结论：**使用大质数作为模数，可以最大化地保证哈希值的均匀分布**。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
+先给出结论：**使用大质数作为模数，可以最大化地保证哈希值的均匀分布**。因为质数不与其他数字存在公约数，可以减少因取模操作而产生的周期性模式，从而避免哈希冲突。
 
 举个例子，假设我们选择合数 $9$ 作为模数，它可以被 $3$ 整除，那么所有可以被 $3$ 整除的 `key` 都会被映射到 $0$、$3$、$6$ 这三个哈希值。
 
@@ -160,7 +160,7 @@ $$
     size_t hashStr = hash<string>()(str);
     // 字符串“Hello 算法”的哈希值为 15466937326284535026
 
-    // 在 C++ 中，内置 std:hash() 仅提供基本数据类型的哈希值计算
+    // 在 C++ 中，内置 std::hash() 仅提供基本数据类型的哈希值计算
     // 数组、对象的哈希值计算需要自行实现
     ```
 
@@ -299,7 +299,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -374,13 +374,29 @@ $$
 === "Ruby"
 
     ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整数 3 的哈希值为 -4385856518450339636
 
-    ```
+    bol = true
+    hash_bol = bol.hash
+    # 布尔量 true 的哈希值为 -1617938112149317027
 
-=== "Zig"
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小数 3.14159 的哈希值为 -1479186995943067893
 
-    ```zig title="built_in_hash.zig"
+    str = "Hello 算法"
+    hash_str = str.hash
+    # 字符串“Hello 算法”的哈希值为 -4075943250025831763
 
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元组 (12836, '小哈') 的哈希值为 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 节点对象 #<ListNode:0x000078133140ab70> 的哈希值为 4302940560806366381
     ```
 
 ??? pythontutor "可视化运行"

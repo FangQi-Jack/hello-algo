@@ -14,12 +14,17 @@ fun siftDown(nums: IntArray, n: Int, li: Int) {
         val l = 2 * i + 1
         val r = 2 * i + 2
         var ma = i
-        if (l < n && nums[l] > nums[ma]) ma = l
-        if (r < n && nums[r] > nums[ma]) ma = r
+        if (l < n && nums[l] > nums[ma]) 
+            ma = l
+        if (r < n && nums[r] > nums[ma]) 
+            ma = r
         // 若節點 i 最大或索引 l, r 越界，則無須繼續堆積化，跳出
-        if (ma == i) break
+        if (ma == i) 
+            break
         // 交換兩節點
-        nums[i] = nums[ma].also { nums[ma] = nums[i] }
+        val temp = nums[i]
+        nums[i] = nums[ma]
+        nums[ma] = temp
         // 迴圈向下堆積化
         i = ma
     }
@@ -34,7 +39,9 @@ fun heapSort(nums: IntArray) {
     // 從堆積中提取最大元素，迴圈 n-1 輪
     for (i in nums.size - 1 downTo 1) {
         // 交換根節點與最右葉節點（交換首元素與尾元素）
-        nums[0] = nums[i].also { nums[i] = nums[0] }
+        val temp = nums[0]
+        nums[0] = nums[i]
+        nums[i] = temp
         // 以根節點為起點，從頂至底進行堆積化
         siftDown(nums, i, 0)
     }

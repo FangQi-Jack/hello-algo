@@ -15,15 +15,14 @@ use std::collections::{HashSet, VecDeque};
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
     // 頂點走訪序列
     let mut res = vec![];
-    // 雜湊表，用於記錄已被訪問過的頂點
+    // 雜湊集合，用於記錄已被訪問過的頂點
     let mut visited = HashSet::new();
     visited.insert(start_vet);
     // 佇列用於實現 BFS
     let mut que = VecDeque::new();
     que.push_back(start_vet);
     // 以頂點 vet 為起點，迴圈直至訪問完所有頂點
-    while !que.is_empty() {
-        let vet = que.pop_front().unwrap(); // 佇列首頂點出隊
+    while let Some(vet) = que.pop_front() {
         res.push(vet); // 記錄訪問頂點
 
         // 走訪該頂點的所有鄰接頂點

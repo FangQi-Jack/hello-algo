@@ -117,19 +117,15 @@
     ```kotlin title=""
     /* 二叉树的数组表示 */
     // 使用 null 来表示空位
-    val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
+    val tree = arrayOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
 === "Ruby"
 
     ```ruby title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
+    ### 二叉树的数组表示 ###
+    # 使用 nil 来表示空位
+    tree = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 ![任意类型二叉树的数组表示](array_representation_of_tree.assets/array_representation_with_empty.png)

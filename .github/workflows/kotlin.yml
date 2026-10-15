@@ -1,0 +1,31 @@
+name: Kotlin
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/kotlin.yml"
+      - "codes/kotlin/**/*.kt"
+      - "en/codes/kotlin/**/*.kt"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/kotlin.yml"
+      - "codes/kotlin/**/*.kt"
+      - "en/codes/kotlin/**/*.kt"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        code-dir: ["codes/kotlin", "en/codes/kotlin"]
+
+    name: Kotlin on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build JAR
+        run: kotlinc ${{ matrix.code-dir }}/**/*.kt -include-runtime -d ${{ matrix.code-dir }}/build/test.jar

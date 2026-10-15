@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 大頂堆積 */
 struct MaxHeap {
@@ -96,7 +96,7 @@ impl MaxHeap {
         // 交換根節點與最右葉節點（交換首元素與尾元素）
         self.swap(0, self.size() - 1);
         // 刪除節點
-        let val = self.max_heap.remove(self.size() - 1);
+        let val = self.max_heap.pop().unwrap();
         // 從頂至底堆積化
         self.sift_down(0);
         // 返回堆積頂元素

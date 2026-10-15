@@ -25,7 +25,7 @@ impl TreeNode {
             height: 0,
             parent: None,
             left: None,
-            right: None
+            right: None,
         }))
     }
 }
@@ -34,7 +34,7 @@ impl TreeNode {
 macro_rules! op_vec {
     ( $( $x:expr ),* ) => {
         vec![
-            $( Option::from($x).map(|x| x) ),* 
+            $( Option::from($x).map(|x| x) ),*
         ]
     };
 }
@@ -72,22 +72,21 @@ pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 }
 
 /* 將二元樹序列化為串列：遞迴 */
-fn tree_to_vec_dfs(root: Option<Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
-    if root.is_none() {
-        return;
-    }    
-    let root = root.unwrap();
-    while i >= res.len() {
-        res.push(None);
+fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
+    if let Some(root) = root {
+        // i + 1 is the minimum valid size to access index i
+        while res.len() < i + 1 {
+            res.push(None);
+        }
+        res[i] = Some(root.borrow().val);
+        tree_to_vec_dfs(root.borrow().left.as_ref(), 2 * i + 1, res);
+        tree_to_vec_dfs(root.borrow().right.as_ref(), 2 * i + 2, res);
     }
-    res[i] = Some(root.borrow().val);
-    tree_to_vec_dfs(root.borrow().left.clone(), 2 * i + 1, res);
-    tree_to_vec_dfs(root.borrow().right.clone(), 2 * i + 2, res);
 }
 
 /* 將二元樹序列化為串列 */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
-    tree_to_vec_dfs(root, 0, &mut res);
+    tree_to_vec_dfs(root.as_ref(), 0, &mut res);
     res
 }

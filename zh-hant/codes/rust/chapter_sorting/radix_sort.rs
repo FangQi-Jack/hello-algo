@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-include!("../include/include.rs");
+use hello_algo_rust::include::print_util;
 
 /* 獲取元素 num 的第 k 位，其中 exp = 10^(k-1) */
 fn digit(num: i32, exp: i32) -> usize {
@@ -35,9 +35,7 @@ fn counting_sort_digit(nums: &mut [i32], exp: i32) {
         counter[d] -= 1; // 將 d 的數量減 1
     }
     // 使用結果覆蓋原陣列 nums
-    for i in 0..n {
-        nums[i] = res[i];
-    }
+    nums.copy_from_slice(&res);
 }
 
 /* 基數排序 */

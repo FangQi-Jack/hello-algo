@@ -52,7 +52,7 @@ index = hash(key) % capacity
 
 觀察發現，每種雜湊演算法的最後一步都是對大質數 $1000000007$ 取模，以確保雜湊值在合適的範圍內。值得思考的是，為什麼要強調對質數取模，或者說對合數取模的弊端是什麼？這是一個有趣的問題。
 
-先丟擲結論：**使用大質數作為模數，可以最大化地保證雜湊值的均勻分佈**。因為質數不與其他數字存在公約數，可以減少因取模操作而產生的週期性模式，從而避免雜湊衝突。
+先給出結論：**使用大質數作為模數，可以最大化地保證雜湊值的均勻分佈**。因為質數不與其他數字存在公約數，可以減少因取模操作而產生的週期性模式，從而避免雜湊衝突。
 
 舉個例子，假設我們選擇合數 $9$ 作為模數，它可以被 $3$ 整除，那麼所有可以被 $3$ 整除的 `key` 都會被對映到 $0$、$3$、$6$ 這三個雜湊值。
 
@@ -160,7 +160,7 @@ $$
     size_t hashStr = hash<string>()(str);
     // 字串“Hello 演算法”的雜湊值為 15466937326284535026
 
-    // 在 C++ 中，內建 std:hash() 僅提供基本資料型別的雜湊值計算
+    // 在 C++ 中，內建 std::hash() 僅提供基本資料型別的雜湊值計算
     // 陣列、物件的雜湊值計算需要自行實現
     ```
 
@@ -299,7 +299,7 @@ $$
     ```rust title="built_in_hash.rs"
     use std::collections::hash_map::DefaultHasher;
     use std::hash::{Hash, Hasher};
-    
+
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
@@ -374,18 +374,34 @@ $$
 === "Ruby"
 
     ```ruby title="built_in_hash.rb"
+    num = 3
+    hash_num = num.hash
+    # 整數 3 的雜湊值為 -4385856518450339636
 
-    ```
+    bol = true
+    hash_bol = bol.hash
+    # 布林量 true 的雜湊值為 -1617938112149317027
 
-=== "Zig"
+    dec = 3.14159
+    hash_dec = dec.hash
+    # 小數 3.14159 的雜湊值為 -1479186995943067893
 
-    ```zig title="built_in_hash.zig"
+    str = "Hello 演算法"
+    hash_str = str.hash
+    # 字串“Hello 演算法”的雜湊值為 -4075943250025831763
 
+    tup = [12836, '小哈']
+    hash_tup = tup.hash
+    # 元組 (12836, '小哈') 的雜湊值為 1999544809202288822
+
+    obj = ListNode.new(0)
+    hash_obj = obj.hash
+    # 節點物件 #<ListNode:0x000078133140ab70> 的雜湊值為 4302940560806366381
     ```
 
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B8%203%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E6%9E%97%E9%87%8F%20True%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B8%203.14159%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E6%BC%94%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E4%B8%B2%E2%80%9CHello%20%E6%BC%94%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%B5%84%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E7%AF%80%E9%BB%9E%E7%89%A9%E4%BB%B6%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E9%9B%9C%E6%B9%8A%E5%80%BC%E7%82%BA%20274267521&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 在許多程式語言中，**只有不可變物件才可作為雜湊表的 `key`** 。假如我們將串列（動態陣列）作為 `key` ，當串列的內容發生變化時，它的雜湊值也隨之改變，我們就無法在雜湊表中查詢到原先的 `value` 了。
 

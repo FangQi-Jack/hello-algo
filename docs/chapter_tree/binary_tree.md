@@ -106,7 +106,7 @@
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
-    
+
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val; // 节点值
             this.left = left === undefined ? null : left; // 左子节点引用
@@ -181,21 +181,24 @@
     ```kotlin title=""
     /* 二叉树节点类 */
     class TreeNode(val _val: Int) {  // 节点值
-        val left: TreeNode? = null   // 左子节点引用
-        val right: TreeNode? = null  // 右子节点引用
+        var left: TreeNode? = null   // 左子节点引用
+        var right: TreeNode? = null  // 右子节点引用
     }
     ```
 
 === "Ruby"
 
     ```ruby title=""
+    ### 二叉树节点类 ###
+    class TreeNode
+      attr_accessor :val    # 节点值
+      attr_accessor :left   # 左子节点引用
+      attr_accessor :right  # 右子节点引用
 
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
+      def initialize(val)
+        @val = val
+      end
+    end
     ```
 
 每个节点都有两个引用（指针），分别指向<u>左子节点（left-child node）</u>和<u>右子节点（right-child node）</u>，该节点被称为这两个子节点的<u>父节点（parent node）</u>。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的<u>左子树（left subtree）</u>，同理可得<u>右子树（right subtree）</u>。
@@ -432,13 +435,18 @@
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
+    # 初始化二叉树
+    # 初始化节点
+    n1 = TreeNode.new(1)
+    n2 = TreeNode.new(2)
+    n3 = TreeNode.new(3)
+    n4 = TreeNode.new(4)
+    n5 = TreeNode.new(5)
+    # 构建节点之间的引用（指针）
+    n1.left = n2
+    n1.right = n3
+    n2.left = n4
+    n2.right = n5
     ```
 
 ??? pythontutor "可视化运行"
@@ -473,6 +481,8 @@
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
+    // 释放内存
+    delete P;
     ```
 
 === "Java"
@@ -578,6 +588,8 @@
     P->left = n2;
     // 删除节点 P
     n1->left = n2;
+    // 释放内存
+    free(P);
     ```
 
 === "Kotlin"
@@ -594,20 +606,20 @@
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-
-    ```
-
-=== "Zig"
-
-    ```zig title="binary_tree.zig"
-
+    # 插入与删除节点
+    _p = TreeNode.new(0)
+    # 在 n1 -> n2 中间插入节点 _p
+    n1.left = _p
+    _p.left = n2
+    # 删除节点
+    n1.left = n2
     ```
 
 ??? pythontutor "可视化运行"
 
     https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20p%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%E5%9C%A8%20n1%20-%3E%20n2%20%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-!!! note
+!!! tip
 
     需要注意的是，插入节点可能会改变二叉树的原有逻辑结构，而删除节点通常意味着删除该节点及其所有子树。因此，在二叉树中，插入与删除通常是由一套操作配合完成的，以实现有实际意义的操作。
 
@@ -625,7 +637,7 @@
 
 ### 完全二叉树
 
-如下图所示，<u>完全二叉树（complete binary tree）</u>只有最底层的节点未被填满，且最底层节点尽量靠左填充。
+如下图所示，<u>完全二叉树（complete binary tree）</u>仅允许最底层的节点不完全填满，且最底层的节点必须从左至右依次连续填充。请注意，完美二叉树也是一棵完全二叉树。
 
 ![完全二叉树](binary_tree.assets/complete_binary_tree.png)
 

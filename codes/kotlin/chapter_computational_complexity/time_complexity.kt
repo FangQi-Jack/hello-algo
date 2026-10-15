@@ -9,7 +9,7 @@ package chapter_computational_complexity.time_complexity
 /* 常数阶 */
 fun constant(n: Int): Int {
     var count = 0
-    val size = 10_0000
+    val size = 100000
     for (i in 0..<size)
         count++
     return count
@@ -18,7 +18,6 @@ fun constant(n: Int): Int {
 /* 线性阶 */
 fun linear(n: Int): Int {
     var count = 0
-    // 循环次数与数组长度成正比
     for (i in 0..<n)
         count++
     return count
@@ -48,14 +47,16 @@ fun quadratic(n: Int): Int {
 
 /* 平方阶（冒泡排序） */
 fun bubbleSort(nums: IntArray): Int {
-    var count = 0
+    var count = 0 // 计数器
     // 外循环：未排序区间为 [0, i]
     for (i in nums.size - 1 downTo 1) {
         // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // 交换 nums[j] 与 nums[j + 1]
-                nums[j] = nums[j + 1].also { nums[j + 1] = nums[j] }
+                val temp = nums[j]
+                nums[j] = nums[j + 1]
+                nums[j + 1] = temp
                 count += 3 // 元素交换包含 3 个单元操作
             }
         }
@@ -66,8 +67,8 @@ fun bubbleSort(nums: IntArray): Int {
 /* 指数阶（循环实现） */
 fun exponential(n: Int): Int {
     var count = 0
-    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     var base = 1
+    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
     for (i in 0..<n) {
         for (j in 0..<base) {
             count++
@@ -109,7 +110,7 @@ fun linearLogRecur(n: Int): Int {
     if (n <= 1)
         return 1
     var count = linearLogRecur(n / 2) + linearLogRecur(n / 2)
-    for (i in 0..<n.toInt()) {
+    for (i in 0..<n) {
         count++
     }
     return count
@@ -133,7 +134,7 @@ fun main() {
     val n = 8
     println("输入数据大小 n = $n")
 
-    var count: Int = constant(n)
+    var count = constant(n)
     println("常数阶的操作数量 = $count")
 
     count = linear(n)
@@ -144,7 +145,8 @@ fun main() {
     count = quadratic(n)
     println("平方阶的操作数量 = $count")
     val nums = IntArray(n)
-    for (i in 0..<n) nums[i] = n - i // [n,n-1,...,2,1]
+    for (i in 0..<n)
+        nums[i] = n - i // [n,n-1,...,2,1]
     count = bubbleSort(nums)
     println("平方阶（冒泡排序）的操作数量 = $count")
 

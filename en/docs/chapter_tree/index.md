@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    The towering tree, full of vitality with its roots deep and leaves lush, branches spreading wide.
-    
-    It vividly demonstrates the form of data divide-and-conquer.
+    Towering trees are full of vitality, with deep roots, lush foliage, and sprawling branches.
+
+    They offer a vivid illustration of divide-and-conquer in data structures.

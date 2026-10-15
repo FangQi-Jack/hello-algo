@@ -1,0 +1,34 @@
+name: JavaScript
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/javascript.yml"
+      - "codes/javascript/**/*.js"
+      - "en/codes/javascript/**/*.js"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/javascript.yml"
+      - "codes/javascript/**/*.js"
+      - "en/codes/javascript/**/*.js"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        code-dir: ["codes/javascript", "en/codes/javascript"]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2
+        with:
+          deno-version: v2.x
+      - name: Run JavaScript Code
+        run: deno run -A ${{ matrix.code-dir }}/test_all.js

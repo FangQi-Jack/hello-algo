@@ -1,30 +1,30 @@
-# Hash table
+# Hash Table
 
-A "hash table", also known as a "hash map", achieves efficient element querying by establishing a mapping between keys and values. Specifically, when we input a `key` into the hash table, we can retrieve the corresponding `value` in $O(1)$ time.
+A <u>hash table</u>, also known as a <u>hash map</u>, stores mappings from keys `key` to values `value`, enabling efficient lookups. Specifically, given a key `key`, we can retrieve the corresponding value `value` from a hash table in $O(1)$ time.
 
-As shown in the figure below, given $n$ students, each with two pieces of data: "name" and "student number". If we want to implement a query feature that returns the corresponding name when given a student number, we can use the hash table shown in the figure below.
+As shown below, suppose we have $n$ students, each with two pieces of information: a name and a student ID. If we want to support the query "given a student ID, return the corresponding name," we can use the hash table shown below.
 
 ![Abstract representation of a hash table](hash_map.assets/hash_table_lookup.png)
 
-Apart from hash tables, arrays and linked lists can also be used to implement querying functions. Their efficiency is compared in the table below.
+In addition to hash tables, arrays and linked lists can also implement query functionality. Their efficiency comparison is shown in the following table.
 
-- **Adding elements**: Simply add the element to the end of the array (or linked list), using $O(1)$ time.
-- **Querying elements**: Since the array (or linked list) is unordered, it requires traversing all the elements, using $O(n)$ time.
-- **Deleting elements**: First, locate the element, then delete it from the array (or linked list), using $O(n)$ time.
+- **Adding elements**: Simply add elements to the end of the array (linked list), using $O(1)$ time.
+- **Querying elements**: Since the array (linked list) is unordered, all elements need to be traversed, using $O(n)$ time.
+- **Deleting elements**: The element must first be located, then deleted from the array (linked list), using $O(n)$ time.
 
 <p align="center"> Table <id> &nbsp; Comparison of element query efficiency </p>
 
-|                | Array  | Linked List | Hash Table |
-| -------------- | ------ | ----------- | ---------- |
-| Find Element   | $O(n)$ | $O(n)$      | $O(1)$     |
-| Add Element    | $O(1)$ | $O(1)$      | $O(1)$     |
-| Delete Element | $O(n)$ | $O(n)$      | $O(1)$     |
+|                 | Array  | Linked List | Hash Table |
+| --------------- | ------ | ----------- | ---------- |
+| Find element    | $O(n)$ | $O(n)$      | $O(1)$     |
+| Add element     | $O(1)$ | $O(1)$      | $O(1)$     |
+| Delete element  | $O(n)$ | $O(n)$      | $O(1)$     |
 
-Observations reveal that **the time complexity for adding, deleting, and querying in a hash table is $O(1)$**, which is highly efficient.
+As we can see, **insertion, deletion, lookup, and update operations in a hash table all have time complexity $O(1)$**, making hash tables highly efficient.
 
-## Common operations of hash table
+## Common Hash Table Operations
 
-Common operations of a hash table include initialization, querying, adding key-value pairs, and deleting key-value pairs, etc. Example code is as follows:
+Common operations on hash tables include: initialization, query operations, adding key-value pairs, and deleting key-value pairs. Example code is as follows:
 
 === "Python"
 
@@ -33,15 +33,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     hmap: dict = {}
 
     # Add operation
-    # Add key-value pair (key, value) to the hash table
-    hmap[12836] = "Xiao Ha"
-    hmap[15937] = "Xiao Luo"
-    hmap[16750] = "Xiao Suan"
-    hmap[13276] = "Xiao Fa"
-    hmap[10583] = "Xiao Ya"
+    # Add key-value pair (key, value) to hash table
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     # Query operation
-    # Input key into hash table, get value
+    # Input key into hash table to get value
     name: str = hmap[15937]
 
     # Delete operation
@@ -56,15 +56,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     unordered_map<int, string> map;
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map[12836] = "Xiao Ha";
-    map[15937] = "Xiao Luo";
-    map[16750] = "Xiao Suan";
-    map[13276] = "Xiao Fa";
-    map[10583] = "Xiao Ya";
+    // Add key-value pair (key, value) to hash table
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     string name = map[15937];
 
     /* Delete operation */
@@ -79,15 +79,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     Map<Integer, String> map = new HashMap<>();
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.put(12836, "Xiao Ha");   
-    map.put(15937, "Xiao Luo");   
-    map.put(16750, "Xiao Suan");   
-    map.put(13276, "Xiao Fa");
-    map.put(10583, "Xiao Ya");
+    // Add key-value pair (key, value) to hash table
+    map.put(12836, "XiaoHa");
+    map.put(15937, "XiaoLuo");
+    map.put(16750, "XiaoSuan");
+    map.put(13276, "XiaoFa");
+    map.put(10583, "XiaoYa");
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     String name = map.get(15937);
 
     /* Delete operation */
@@ -101,16 +101,16 @@ Common operations of a hash table include initialization, querying, adding key-v
     /* Initialize hash table */
     Dictionary<int, string> map = new() {
         /* Add operation */
-        // Add key-value pair (key, value) to the hash table
-        { 12836, "Xiao Ha" },
-        { 15937, "Xiao Luo" },
-        { 16750, "Xiao Suan" },
-        { 13276, "Xiao Fa" },
-        { 10583, "Xiao Ya" }
+        // Add key-value pair (key, value) to hash table
+        { 12836, "XiaoHa" },
+        { 15937, "XiaoLuo" },
+        { 16750, "XiaoSuan" },
+        { 13276, "XiaoFa" },
+        { 10583, "XiaoYa" }
     };
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     string name = map[15937];
 
     /* Delete operation */
@@ -125,15 +125,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     hmap := make(map[int]string)
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    hmap[12836] = "Xiao Ha"
-    hmap[15937] = "Xiao Luo"
-    hmap[16750] = "Xiao Suan"
-    hmap[13276] = "Xiao Fa"
-    hmap[10583] = "Xiao Ya"
+    // Add key-value pair (key, value) to hash table
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     name := hmap[15937]
 
     /* Delete operation */
@@ -148,15 +148,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     var map: [Int: String] = [:]
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map[12836] = "Xiao Ha"
-    map[15937] = "Xiao Luo"
-    map[16750] = "Xiao Suan"
-    map[13276] = "Xiao Fa"
-    map[10583] = "Xiao Ya"
+    // Add key-value pair (key, value) to hash table
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     let name = map[15937]!
 
     /* Delete operation */
@@ -170,15 +170,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     /* Initialize hash table */
     const map = new Map();
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.set(12836, 'Xiao Ha');
-    map.set(15937, 'Xiao Luo');
-    map.set(16750, 'Xiao Suan');
-    map.set(13276, 'Xiao Fa');
-    map.set(10583, 'Xiao Ya');
+    // Add key-value pair (key, value) to hash table
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     let name = map.get(15937);
 
     /* Delete operation */
@@ -192,24 +192,24 @@ Common operations of a hash table include initialization, querying, adding key-v
     /* Initialize hash table */
     const map = new Map<number, string>();
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.set(12836, 'Xiao Ha');
-    map.set(15937, 'Xiao Luo');
-    map.set(16750, 'Xiao Suan');
-    map.set(13276, 'Xiao Fa');
-    map.set(10583, 'Xiao Ya');
-    console.info('\nAfter adding, the hash table is\nKey -> Value');
+    // Add key-value pair (key, value) to hash table
+    map.set(12836, 'XiaoHa');
+    map.set(15937, 'XiaoLuo');
+    map.set(16750, 'XiaoSuan');
+    map.set(13276, 'XiaoFa');
+    map.set(10583, 'XiaoYa');
+    console.info('\nAfter adding, hash table is\nKey -> Value');
     console.info(map);
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     let name = map.get(15937);
-    console.info('\nInput student number 15937, query name ' + name);
+    console.info('\nInput student ID 15937, queried name ' + name);
 
     /* Delete operation */
     // Delete key-value pair (key, value) from hash table
     map.delete(10583);
-    console.info('\nAfter deleting 10583, the hash table is\nKey -> Value');
+    console.info('\nAfter deleting 10583, hash table is\nKey -> Value');
     console.info(map);
     ```
 
@@ -220,15 +220,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     Map<int, String> map = {};
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map[12836] = "Xiao Ha";
-    map[15937] = "Xiao Luo";
-    map[16750] = "Xiao Suan";
-    map[13276] = "Xiao Fa";
-    map[10583] = "Xiao Ya";
+    // Add key-value pair (key, value) to hash table
+    map[12836] = "XiaoHa";
+    map[15937] = "XiaoLuo";
+    map[16750] = "XiaoSuan";
+    map[13276] = "XiaoFa";
+    map[10583] = "XiaoYa";
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     String name = map[15937];
 
     /* Delete operation */
@@ -245,15 +245,15 @@ Common operations of a hash table include initialization, querying, adding key-v
     let mut map: HashMap<i32, String> = HashMap::new();
 
     /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.insert(12836, "Xiao Ha".to_string());
-    map.insert(15937, "Xiao Luo".to_string());
-    map.insert(16750, "Xiao Suan".to_string());
-    map.insert(13279, "Xiao Fa".to_string());
-    map.insert(10583, "Xiao Ya".to_string());
+    // Add key-value pair (key, value) to hash table
+    map.insert(12836, "XiaoHa".to_string());
+    map.insert(15937, "XiaoLuo".to_string());
+    map.insert(16750, "XiaoSuan".to_string());
+    map.insert(13276, "XiaoFa".to_string());
+    map.insert(10583, "XiaoYa".to_string());
 
     /* Query operation */
-    // Input key into hash table, get value
+    // Input key into hash table to get value
     let _name: Option<&String> = map.get(&15937);
 
     /* Delete operation */
@@ -270,20 +270,54 @@ Common operations of a hash table include initialization, querying, adding key-v
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
+    /* Initialize hash table */
+    val map = HashMap<Int,String>()
 
+    /* Add operation */
+    // Add key-value pair (key, value) to hash table
+    map[12836] = "XiaoHa"
+    map[15937] = "XiaoLuo"
+    map[16750] = "XiaoSuan"
+    map[13276] = "XiaoFa"
+    map[10583] = "XiaoYa"
+
+    /* Query operation */
+    // Input key into hash table to get value
+    val name = map[15937]
+
+    /* Delete operation */
+    // Delete key-value pair (key, value) from hash table
+    map.remove(10583)
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title="hash_map.zig"
+    ```ruby title="hash_map.rb"
+    # Initialize hash table
+    hmap = {}
 
+    # Add operation
+    # Add key-value pair (key, value) to hash table
+    hmap[12836] = "XiaoHa"
+    hmap[15937] = "XiaoLuo"
+    hmap[16750] = "XiaoSuan"
+    hmap[13276] = "XiaoFa"
+    hmap[10583] = "XiaoYa"
+
+    # Query operation
+    # Input key into hash table to get value
+    name = hmap[15937]
+
+    # Delete operation
+    # Delete key-value pair (key, value) from hash table
+    hmap.delete(10583)
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualized Execution"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%90%91%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E8%BE%93%E5%85%A5%E9%94%AE%20key%20%EF%BC%8C%E5%BE%97%E5%88%B0%E5%80%BC%20value%0A%20%20%20%20name%20%3D%20hmap%5B15937%5D%0A%20%20%20%20%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap.pop%2810583%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-There are three common ways to traverse a hash table: traversing key-value pairs, keys, and values. Example code is as follows:
+There are three common ways to traverse a hash table: traversing key-value pairs, traversing keys, and traversing values. Example code is as follows:
 
 === "Python"
 
@@ -428,17 +462,17 @@ There are three common ways to traverse a hash table: traversing key-value pairs
     /* Traverse hash table */
     // Traverse key-value pairs Key->Value
     map.forEach((key, value) {
-    print('$key -> $value');
+      print('$key -> $value');
     });
 
-    // Traverse keys only Key
+    // Traverse keys only
     map.keys.forEach((key) {
-    print(key);
+      print(key);
     });
 
-    // Traverse values only Value
+    // Traverse values only
     map.values.forEach((value) {
-    print(value);
+      print(value);
     });
     ```
 
@@ -451,12 +485,12 @@ There are three common ways to traverse a hash table: traversing key-value pairs
         println!("{key} -> {value}");
     }
 
-    // Traverse keys only Key
+    // Traverse keys only
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
-    // Traverse values only Value
+    // Traverse values only
     for value in map.values() {
         println!("{value}");
     }
@@ -471,67 +505,87 @@ There are three common ways to traverse a hash table: traversing key-value pairs
 === "Kotlin"
 
     ```kotlin title="hash_map.kt"
-
+    /* Traverse hash table */
+    // Traverse key-value pairs key->value
+    for ((key, value) in map) {
+        println("$key -> $value")
+    }
+    // Traverse keys only
+    for (key in map.keys) {
+        println(key)
+    }
+    // Traverse values only
+    for (_val in map.values) {
+        println(_val)
+    }
     ```
 
-=== "Zig"
+=== "Ruby"
 
-    ```zig title="hash_map.zig"
-    // Zig example is not provided
+    ```ruby title="hash_map.rb"
+    # Traverse hash table
+    # Traverse key-value pairs key->value
+    hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
+
+    # Traverse keys only
+    hmap.keys.each { |key| puts key }
+
+    # Traverse values only
+    hmap.values.each { |val| puts val }
     ```
 
-??? pythontutor "Code Visualization"
+??? pythontutor "Visualized Execution"
 
     https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## Simple implementation of hash table
+## Simple Hash Table Implementation
 
-First, let's consider the simplest case: **implementing a hash table using just an array**. In the hash table, each empty slot in the array is called a "bucket", and each bucket can store one key-value pair. Therefore, the query operation involves finding the bucket corresponding to the `key` and retrieving the `value` from it.
+Let's start with the simplest case: **implementing a hash table with just an array**. In a hash table, each empty slot in the array is called a <u>bucket</u>, and each bucket can store one key-value pair. A lookup therefore consists of finding the bucket for `key` and reading the `value` stored there.
 
-So, how do we locate the appropriate bucket based on the `key`? This is achieved through a "hash function". The role of the hash function is to map a larger input space to a smaller output space. In a hash table, the input space is all possible keys, and the output space is all buckets (array indices). In other words, input a `key`, **and we can use the hash function to determine the storage location of the corresponding key-value pair in the array**.
+So how do we find the right bucket for a given `key`? We do this with a <u>hash function</u>. A hash function maps a larger input space to a smaller output space. In a hash table, the input space is the set of all `key`s, and the output space is the set of all buckets (array indices). In other words, given a `key`, **the hash function tells us where the corresponding key-value pair should be stored in the array**.
 
-The calculation process of the hash function for a given `key` is divided into the following two steps:
+Given a `key`, computing the bucket index involves the following two steps:
 
-1. Calculate the hash value using a certain hash algorithm `hash()`.
-2. Take the modulus of the hash value with the number of buckets (array length) `capacity` to obtain the array index `index`.
+1. Use a hash algorithm `hash()` to compute a hash value.
+2. Take that hash value modulo the number of buckets (array length), `capacity`, to obtain the bucket (array index) `index` corresponding to the `key`.
 
 ```shell
 index = hash(key) % capacity
 ```
 
-Afterward, we can use `index` to access the corresponding bucket in the hash table and thereby retrieve the `value`.
+We can then use `index` to access the corresponding bucket in the hash table and retrieve the `value`.
 
-Assuming array length `capacity = 100` and hash algorithm `hash(key) = key`, the hash function is `key % 100`. The figure below uses `key` as the student number and `value` as the name to demonstrate the working principle of the hash function.
+Suppose the array length is `capacity = 100` and the hash algorithm is `hash(key) = key`. Then the hash function is `key % 100`. The figure below illustrates how this hash function works, using student ID as `key` and name as `value`.
 
 ![Working principle of hash function](hash_map.assets/hash_function.png)
 
-The following code implements a simple hash table. Here, we encapsulate `key` and `value` into a class `Pair` to represent the key-value pair.
+The following code implements a simple hash table. Here, we encapsulate `key` and `value` into a class `Pair` to represent a key-value pair.
 
 ```src
 [file]{array_hash_map}-[class]{array_hash_map}-[func]{}
 ```
 
-## Hash collision and resizing
+## Hash Collision and Resizing
 
-Fundamentally, the role of the hash function is to map the entire input space of all keys to the output space of all array indices. However, the input space is often much larger than the output space. Therefore, **theoretically, there must be situations where "multiple inputs correspond to the same output"**.
+Fundamentally, a hash function maps the input space consisting of all `key`s to the output space consisting of all array indices, and the input space is often much larger than the output space. Therefore, **in theory, different inputs must sometimes map to the same output**.
 
-For the hash function in the above example, if the last two digits of the input `key` are the same, the output of the hash function will also be the same. For example, when querying for students with student numbers 12836 and 20336, we find:
+For the hash function in the above example, when the input `key`s have the same last two digits, the hash function produces the same output. For example, when querying two students with IDs 12836 and 20336, we get:
 
 ```shell
 12836 % 100 = 36
 20336 % 100 = 36
 ```
 
-As shown in the figure below, both student numbers point to the same name, which is obviously incorrect. This situation where multiple inputs correspond to the same output is known as "hash collision".
+As shown below, two student IDs now point to the same name, which is clearly incorrect. We call this situation, where multiple inputs map to the same output, a <u>hash collision</u>.
 
-![Example of hash collision](hash_map.assets/hash_collision.png)
+![Hash collision example](hash_map.assets/hash_collision.png)
 
-It is easy to understand that the larger the capacity $n$ of the hash table, the lower the probability of multiple keys being allocated to the same bucket, and the fewer the collisions. Therefore, **expanding the capacity of the hash table can reduce hash collisions**.
+It's easy to see that the larger the hash table capacity $n$, the lower the probability that multiple `key`s will be assigned to the same bucket, and the fewer collisions. Therefore, **we can reduce hash collisions by expanding the hash table**.
 
-As shown in the figure below, before expansion, key-value pairs `(136, A)` and `(236, D)` collided; after expansion, the collision is resolved.
+As shown in the figure below, before expansion, the key-value pairs `(136, A)` and `(236, D)` collided, but after expansion, the collision disappears.
 
-![Hash table expansion](hash_map.assets/hash_table_reshash.png)
+![Hash table resizing](hash_map.assets/hash_table_reshash.png)
 
-Similar to array expansion, resizing a hash table requires migrating all key-value pairs from the original hash table to the new one, which is time-consuming. Furthermore, since the capacity `capacity` of the hash table changes, we need to recalculate the storage positions of all key-value pairs using the hash function, which adds to the computational overhead of the resizing process. Therefore, programming languages often reserve a sufficiently large capacity for the hash table to prevent frequent resizing.
+Like resizing an array, resizing a hash table requires migrating all key-value pairs from the original table to the new table, which is expensive. In addition, because the hash table capacity `capacity` changes, we must recompute the storage location of every key-value pair using the hash function, which further increases the cost of resizing. For this reason, programming languages typically reserve a sufficiently large hash table capacity to avoid frequent resizing.
 
-The "load factor" is an important concept for hash tables. It is defined as the ratio of the number of elements in the hash table to the number of buckets. It is used to measure the severity of hash collisions and **is often used as a trigger for resizing the hash table**. For example, in Java, when the load factor exceeds $0.75$, the system will resize the hash table to twice its original size.
+The <u>load factor</u> is an important concept in hash tables. It is defined as the number of elements in the hash table divided by the number of buckets and is used to measure the severity of hash collisions. **It is also commonly used as a threshold for triggering hash table resizing**. For example, in Java, when the load factor exceeds $0.75$, the system expands the hash table to twice its original size.

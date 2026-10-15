@@ -15,7 +15,7 @@
     ```python title="array.py"
     # 初始化数组
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
+    nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
@@ -23,10 +23,10 @@
     ```cpp title="array.cpp"
     /* 初始化数组 */
     // 存储在栈上
-    int arr[5];
+    int arr[5] = {};
     int nums[5] = { 1, 3, 2, 5, 4 };
     // 存储在堆上（需要手动释放空间）
-    int* arr1 = new int[5];
+    int* arr1 = new int[5] {};
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
 
@@ -93,7 +93,12 @@
 
     ```rust title="array.rs"
     /* 初始化数组 */
-    let arr: Vec<i32> = vec![0; 5]; // [0, 0, 0, 0, 0]
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+    let slice: &[i32] = &[0; 5];
+    // 在 Rust 中，指定长度时（[i32; 5]）为数组，不指定长度时（&[i32]）为切片
+    // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
+    // Vector 是 Rust 一般情况下用作动态数组的类型
+    // 为了方便实现扩容 extend() 方法，以下将 vector 看作数组（array）
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -119,14 +124,6 @@
     # 初始化数组
     arr = Array.new(5, 0)
     nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
 ??? pythontutor "可视化运行"

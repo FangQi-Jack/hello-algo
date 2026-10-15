@@ -20,7 +20,7 @@ VS Code 擁有強大的擴展包生態系統，支持大多數程式語言的執
 
 ### C/C++ 環境
 
-1. Windows 系統需要安裝 [MinGW](https://sourceforge.net/projects/mingw-w64/files/)（[配置教程](https://blog.csdn.net/qq_33698226/article/details/129031241)）；MacOS 自帶 Clang ，無須安裝。
+1. Windows 系統需要安裝 [MinGW](https://sourceforge.net/projects/mingw-w64/files/)（[配置教程](https://blog.csdn.net/qq_33698226/article/details/129031241)）；macOS 自帶 Clang ，無須安裝。
 2. 在 VS Code 的擴充功能市場中搜索 `c++` ，安裝 C/C++ Extension Pack 。
 3. （可選）開啟 Settings 頁面，搜尋 `Clang_format_fallback Style` 程式碼格式化選項，設定為 `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }` 。
 
@@ -31,7 +31,7 @@ VS Code 擁有強大的擴展包生態系統，支持大多數程式語言的執
 
 ### C# 環境
 
-1. 下載並安裝 [.Net 8.0](https://dotnet.microsoft.com/en-us/download) 。
+1. 下載並安裝 [.NET 8.0](https://dotnet.microsoft.com/en-us/download) 。
 2. 在 VS Code 的擴充功能市場中搜索 `C# Dev Kit` ，安裝 C# Dev Kit （[配置教程](https://code.visualstudio.com/docs/csharp/get-started)）。
 3. 也可使用 Visual Studio（[安裝教程](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)）。
 
@@ -48,9 +48,14 @@ VS Code 擁有強大的擴展包生態系統，支持大多數程式語言的執
 
 ### JavaScript 環境
 
-1. 下載並安裝 [node.js](https://nodejs.org/en/) 。
-2. 在 VS Code 的擴充功能市場中搜索 `javascript` ，安裝 JavaScript (ES6) code snippets 。
-3. （可選）在 VS Code 的擴充功能市場中搜索 `Prettier` ，安裝程式碼格式化工具。
+1. 下載並安裝 [Node.js](https://nodejs.org/en/) 。
+2. （可選）在 VS Code 的擴充功能市場中搜索 `Prettier` ，安裝程式碼格式化工具。
+
+### TypeScript 環境
+
+1. 同 JavaScript 環境安裝步驟。
+2. 安裝 [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation) 。
+3. 在 VS Code 的擴充功能市場中搜索 `typescript` ，安裝 [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors) 。
 
 ### Dart 環境
 

@@ -166,13 +166,8 @@
 === "Ruby"
 
     ```ruby title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    
+    # Ruby 的列表可以自由存储各种基本数据类型和对象引用
+    data = [0, 0.0, 'a', false, ListNode(0)]
     ```
 
 ??? pythontutor "可视化运行"

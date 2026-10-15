@@ -6,24 +6,27 @@ name: Swift
 on:
   push:
     branches: ["main"]
-    paths: ["codes/swift/**/*.swift"]
+    paths:
+      - ".github/workflows/swift.yml"
+      - "codes/swift/**/*.swift"
+      - "en/codes/swift/**/*.swift"
   pull_request:
     branches: ["main"]
-    paths: ["codes/swift/**/*.swift"]
+    paths:
+      - ".github/workflows/swift.yml"
+      - "codes/swift/**/*.swift"
+      - "en/codes/swift/**/*.swift"
   workflow_dispatch:
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    name: Swift on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        swift: ["5.10", "5.9", "5.8"]
+        os: ["ubuntu-22.04", "macos-14"]
+        code-dir: ["codes/swift", "en/codes/swift"]
     steps:
-      - uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: ${{ matrix.swift }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build
-        run: swift build --package-path codes/swift
+        run: swift build --package-path ${{ matrix.code-dir }}

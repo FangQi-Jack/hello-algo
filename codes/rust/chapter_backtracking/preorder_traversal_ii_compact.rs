@@ -4,16 +4,14 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-include!("../include/include.rs");
-
+use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
-use tree_node::{vec_to_tree, TreeNode};
 
 /* 前序遍历：例题二 */
 fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
-    root: Option<Rc<RefCell<TreeNode>>>,
+    root: Option<&Rc<RefCell<TreeNode>>>,
 ) {
     if root.is_none() {
         return;
@@ -25,10 +23,10 @@ fn pre_order(
             // 记录解
             res.push(path.clone());
         }
-        pre_order(res, path, node.borrow().left.clone());
-        pre_order(res, path, node.borrow().right.clone());
+        pre_order(res, path, node.borrow().left.as_ref());
+        pre_order(res, path, node.borrow().right.as_ref());
         // 回退
-        path.remove(path.len() - 1);
+        path.pop();
     }
 }
 
@@ -41,7 +39,7 @@ pub fn main() {
     // 前序遍历
     let mut path = Vec::new();
     let mut res = Vec::new();
-    pre_order(&mut res, &mut path, root);
+    pre_order(&mut res, &mut path, root.as_ref());
 
     println!("\n输出所有根节点到节点 7 的路径");
     for path in res {

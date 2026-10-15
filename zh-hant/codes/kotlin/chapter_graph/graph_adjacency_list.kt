@@ -11,15 +11,15 @@ import utils.Vertex
 /* 基於鄰接表實現的無向圖類別 */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
     // 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
-    val adjList: MutableMap<Vertex, MutableList<Vertex>> = HashMap()
+    val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* 建構子 */
     init {
         // 新增所有頂點和邊
         for (edge in edges) {
-            addVertex(edge[0]!!);
-            addVertex(edge[1]!!);
-            addEdge(edge[0]!!, edge[1]!!);
+            addVertex(edge[0]!!)
+            addVertex(edge[1]!!)
+            addEdge(edge[0]!!, edge[1]!!)
         }
     }
 
@@ -34,7 +34,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
             throw IllegalArgumentException()
         // 新增邊 vet1 - vet2
         adjList[vet1]?.add(vet2)
-        adjList[vet2]?.add(vet1);
+        adjList[vet2]?.add(vet1)
     }
 
     /* 刪除邊 */
@@ -42,8 +42,8 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
         // 刪除邊 vet1 - vet2
-        adjList[vet1]?.remove(vet2);
-        adjList[vet2]?.remove(vet1);
+        adjList[vet1]?.remove(vet2)
+        adjList[vet2]?.remove(vet1)
     }
 
     /* 新增頂點 */
@@ -59,7 +59,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
         // 在鄰接表中刪除頂點 vet 對應的鏈結串列
-        adjList.remove(vet);
+        adjList.remove(vet)
         // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
         for (list in adjList.values) {
             list.remove(vet)
@@ -70,11 +70,11 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun print() {
         println("鄰接表 =")
         for (pair in adjList.entries) {
-            val tmp = ArrayList<Int>()
+            val tmp = mutableListOf<Int>()
             for (vertex in pair.value) {
-                tmp.add(vertex.value)
+                tmp.add(vertex._val)
             }
-            println("${pair.key.value}: $tmp,")
+            println("${pair.key._val}: $tmp,")
         }
     }
 }
@@ -82,7 +82,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
 /* Driver Code */
 fun main() {
     /* 初始化無向圖 */
-    val v: Array<Vertex?> = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
+    val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
         arrayOf(v[0], v[3]),

@@ -2,11 +2,11 @@
 
 本專案旨在建立一本開源、免費、對新手友好的資料結構與演算法入門教程。
 
-- 全書採用動畫圖解，結構化地講解資料結構與演算法知識，內容清晰易懂，學習曲線平滑。
-- 演算法源程式碼皆可一鍵執行，支持 Python、C++、Java、C#、Go、Swift、JavaScript、TypeScript、Dart、Rust、C 和 Zig 等語言。
-- 鼓勵讀者在線上章節評論區互幫互助、共同進步，提問與評論通常可在兩日內得到回覆。
+- 全書採用動畫圖解，內容清晰易懂、學習曲線平滑，引導初學者探索資料結構與演算法的知識地圖。
+- 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
+- 提倡讀者互助學習，歡迎大家在評論區提出問題與分享見解，在交流討論中共同進步。
 
-## 讀者物件
+## 目標讀者
 
 若你是演算法初學者，從未接觸過演算法，或者已經有一些刷題經驗，對資料結構與演算法有模糊的認識，在會與不會之間反覆橫跳，那麼本書正是為你量身定製的！
 
@@ -30,9 +30,13 @@
 
 ## 致謝
 
-本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、codingonion、nuomi1、Gonglja、Reanon、justin-tse、danielsss、hpstory、S-N-O-R-L-A-X、night-cruise、msk397、gvenusleo、RiverTwilight、gyt95、zhuoqinyue、Zuoxun、Xia-Sang、mingXta、FangYuan33、GN-Yu、IsChristina、xBLACKICEx、guowei-gong、Cathay-Chen、mgisr、JoseHung、qualifier1024、pengchzn、Guanngxu、longsizhuo、L-Super、what-is-me、yuan0221、lhxsm、Slone123c、WSL0809、longranger2、theNefelibatas、xiongsp、JeffersonHuang、hongyun-robot、K3v123、yuelinxin、a16su、gaofer、malone6、Wonderdch、xjr7670、DullSword、Horbin-Magician、NI-SW、reeswell、XC-Zero、XiaChuerwu、yd-j、iron-irax、huawuque404、MolDuM、Nigh、KorsChen、foursevenlove、52coder、bubble9um、youshaoXG、curly210102、gltianwen、fanchenggang、Transmigration-zhou、FloranceYeh、FreddieLi、ShiMaRing、lipusheng、Javesun99、JackYang-hellobobo、shanghai-Jerry、0130w、Keynman、psychelzh、logan-qiu、ZnYang2018、MwumLi、1ch0、Phoenix0415、qingpeng9802、Richard-Zhang1019、QiLOL、Suremotoo、Turing-1024-Lee、Evilrabbit520、GaochaoZhu、ZJKung、linzeyan、hezhizhen、ZongYangL、beintentional、czruby、coderlef、dshlstarr、szu17dmy、fbigm、gledfish、hts0000、boloboloda、iStig、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、liuxjerry、lucaswangdev、lyl625760、chadyi、noobcodemaker、selear、siqyka、syd168、4yDX3906、tao363、wangwang105、weibk、yabo083、yi427、yishangzhang、zhouLion、baagod、ElaBosak233、xb534、luluxia、yanedie、thomasq0、YangXuanyi 和 th1nk3r-ing 。
+本書在開源社群眾多貢獻者的共同努力下不斷完善。感謝每一位投入時間與精力的撰稿人，他們是（按照 GitHub 自動生成的順序）：krahets、coderonion、Gonglja、nuomi1、Reanon、justin-tse、hpstory、danielsss、curtishd、night-cruise、S-N-O-R-L-A-X、rongyi、msk397、gvenusleo、khoaxuantu、rivertwilight、K3v123、gyt95、zhuoqinyue、yuelinxin、Zuoxun、mingXta、Phoenix0415、FangYuan33、GN-Yu、longsizhuo、pengchzn、QiLOL、Cathay-Chen、guowei-gong、xBLACKICEx、IsChristina、JoseHung、qualifier1024、hello-ikun、magentaqin、Guanngxu、thomasq0、sunshinesDL、L-Super、Transmigration-zhou、WSL0809、Slone123c、lhxsm、yuan0221、what-is-me、theNefelibatas、Shyam-Chen、sangxiaai、longranger2、codeberg-user、xiongsp、JeffersonHuang、prinpal、seven1240、Wonderdch、malone6、xiaomiusa87、gaofer、bluebean-cloud、a16su、SamJin98、hongyun-robot、nanlei、XiaChuerwu、yd-j、iron-irax、mgisr、steventimes、junminhong、heshuyue、danny900714、Nigh、Dr-XYZ、MolDuM、XC-Zero、reeswell、PXG-XPG、NI-SW、Horbin-Magician、Enlightenus、YangXuanyi、xjr7670、beatrix-chan、DullSword、qq909244296、iStig、boloboloda、hts0000、gledfish、fbigm、echo1937、jiaxianhua、wenjianmin、keshida、kilikilikid、lclc6、lwbaptx、linyejoe2、liuxjerry、szu17dmy、dshlstarr、Yucao-cy、coderlef、czruby、bongbongbakudan、beintentional、ZongYangL、ZhongYuuu、ZhongGuanbin、hezhizhen、linzeyan、ZJKung、JTCPOWI、KawaiiAsh、luluxia、xb534、ztkuaikuai、yw-1021、ElaBosak233、baagod、zhouLion、yishangzhang、yi427、yanedie、yabo083、weibk、wangwang105、th1nk3r-ing、tao363、4yDX3906、syd168、sslmj2020、smilelsb、siqyka、selear、sdshaoda、Xi-Row、popozhu、nuquist19、noobcodemaker、XiaoK29、chadyi、lyl625760、lucaswangdev、llql1211、0130w、shanghai-Jerry、EJackYang、Javesun99、eltociear、lipusheng、KNChiu、BlindTerran、ShiMaRing、lovelock、FreddieLi、FloranceYeh、fanchenggang、gltianwen、goerll、nedchu、curly210102、CuB3y0nd、KraHsu、CarrotDLaw、youshaoXG、bubble9um、Asashishi、Asa0oo0o0o、fanenr、eagleanurag、akshiterate、52coder、foursevenlove、KorsChen、hopkings2008、yang-le、realwujing、Evilrabbit520、Umer-Jahangir、Turing-1024-Lee、Suremotoo、paoxiaomooo、Chieko-Seren、Senrian、Allen-Scai、19santosh99、ymmmas、Risuntsy、Richard-Zhang1019、RafaelCaso、qingpeng9802、primexiao、Urbaner3、codetypess、nidhoggfgg、MwumLi、CreatorMetaSky、martinx、ZnYang2018、hugtyftg、logan-qiu、psychelzh、Kunchen-Luo、Keynman 和 KeiichiKasai。
 
-本書的程式碼審閱工作由 codingonion、Gonglja、gvenusleo、hpstory、justin-tse、krahets、night-cruise、nuomi1 和 Reanon 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+本書的程式碼審閱工作由 coderonion、curtishd、Gonglja、gvenusleo、hpstory、justin-tse、khoaxuantu、krahets、night-cruise、nuomi1、Reanon 和 rongyi 完成（按照首字母順序排列）。感謝他們付出的時間與精力，正是他們確保了各語言程式碼的規範與統一。
+
+本書的英文版由 yuelinxin、K3v123、magentaqin、QiLOL、Phoenix0415、SamJin98、yanedie、RafaelCaso、pengchzn 和 thomasq0 審閱；日文版由 eltociear 審閱；俄文版由 И. А. Шевкун 和 Yuyan Huang 審閱；繁體中文版由 Shyam-Chen 和 Dr-XYZ 審閱。正是因為他們的貢獻，這本書才能夠服務於更廣泛的讀者群體，感謝他們。
+
+本書的 ePub 電子書生成工具由 zhongfq 開發。感謝他的貢獻，為讀者提供了更靈活的閱讀方式。
 
 在本書的創作過程中，我得到了許多人的幫助。
 
@@ -41,7 +45,7 @@
 - 感謝騰寶、琦寶、飛寶為本書起了一個富有創意的名字，喚起大家寫下第一行程式碼“Hello World!”的美好回憶；
 - 感謝校銓在智慧財產權方面提供的專業幫助，這對本開源書的完善起到了重要作用；
 - 感謝蘇潼為本書設計了精美的封面和 logo ，並在我的強迫症的驅使下多次耐心修改；
-- 感謝 @squidfunk 提供的排版建議，以及他開發的開源文件主題 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 。
+- 感謝 @squidfunk 提供的排版建議，以及他開發的開源文件主題 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material) 。
 
 在寫作過程中，我閱讀了許多關於資料結構與演算法的教材和文章。這些作品為本書提供了優秀的範本，確保了本書內容的準確性與品質。在此感謝所有老師和前輩的傑出貢獻！
 

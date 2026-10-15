@@ -166,7 +166,7 @@
     // 建構子
     class ListNode(x: Int) {
         val _val: Int = x          // 節點值
-        val next: ListNode? = null // 指向下一個節點的引用
+        var next: ListNode? = null // 指向下一個節點的引用
     }
     ```
 
@@ -183,26 +183,6 @@
         @next = next_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向下一節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
     ```
 
 ## 鏈結串列常用操作
@@ -433,26 +413,9 @@
     n3.next = n4
     ```
 
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化鏈結串列
-    // 初始化各個節點
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 構建節點之間的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    ```
-
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E7%AF%80%E9%BB%9E%E9%A1%9E%E5%88%A5%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E7%AF%80%E9%BB%9E%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%BE%8C%E7%B9%BC%E7%AF%80%E9%BB%9E%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E5%80%8B%E7%AF%80%E9%BB%9E%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%A7%8B%E5%BB%BA%E7%AF%80%E9%BB%9E%E4%B9%8B%E9%96%93%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 陣列整體是一個變數，比如陣列 `nums` 包含元素 `nums[0]` 和 `nums[1]` 等，而鏈結串列是由多個獨立的節點物件組成的。**我們通常將頭節點當作鏈結串列的代稱**，比如以上程式碼中的鏈結串列可記作鏈結串列 `n0` 。
 
@@ -635,8 +598,8 @@
     /* 雙向鏈結串列節點類別 */
     class ListNode {
         int val;        // 節點值
-        ListNode next;  // 指向後繼節點的引用
-        ListNode prev;  // 指向前驅節點的引用
+        ListNode? next;  // 指向後繼節點的引用
+        ListNode? prev;  // 指向前驅節點的引用
         ListNode(this.val, [this.next, this.prev]);  // 建構子
     }
     ```
@@ -695,8 +658,8 @@
     // 建構子
     class ListNode(x: Int) {
         val _val: Int = x           // 節點值
-        val next: ListNode? = null  // 指向後繼節點的引用
-        val prev: ListNode? = null  // 指向前驅節點的引用
+        var next: ListNode? = null  // 指向後繼節點的引用
+        var prev: ListNode? = null  // 指向前驅節點的引用
     }
     ```
 
@@ -717,35 +680,13 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 雙向鏈結串列節點類別
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 節點值
-            next: ?*Self = null, // 指向後繼節點的指標
-            prev: ?*Self = null, // 指向前驅節點的指標
-
-            // 建構子
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
-    ```
-
 ![常見鏈結串列種類](linked_list.assets/linkedlist_common_types.png)
 
 ## 鏈結串列典型應用
 
 單向鏈結串列通常用於實現堆疊、佇列、雜湊表和圖等資料結構。
 
-- **堆疊與佇列**：當插入和刪除操作都在鏈結串列的一端進行時，它表現出先進後出的特性，對應堆疊；當插入操作在鏈結串列的一端進行，刪除操作在鏈結串列的另一端進行，它表現出先進先出的特性，對應佇列。
+- **堆疊與佇列**：當插入和刪除操作都在鏈結串列的一端進行時，它表現的特性為先進後出，對應堆疊；當插入操作在鏈結串列的一端進行，刪除操作在鏈結串列的另一端進行，它表現的特性為先進先出，對應佇列。
 - **雜湊表**：鏈式位址是解決雜湊衝突的主流方案之一，在該方案中，所有衝突的元素都會被放到一個鏈結串列中。
 - **圖**：鄰接表是表示圖的一種常用方式，其中圖的每個頂點都與一個鏈結串列相關聯，鏈結串列中的每個元素都代表與該頂點相連的其他頂點。
 

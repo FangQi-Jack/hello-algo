@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="https://www.hello-algo.com/index.assets/hello_algo_header.png" width="450"></a>
+    <img src="/zh-hant/docs/index.assets/hello_algo_header.png" width="450"></a>
 </p>
 
 <p align="center">
@@ -11,28 +11,30 @@
 
 <p align="center">
   <a href="https://www.hello-algo.com/zh-hant/">
-    <img src="https://www.hello-algo.com/zh-hant/index.assets/btn_read_online_dark.svg" width="145"></a>
+    <img src="/zh-hant/docs/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="/zh-hant/docs/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
-  <img src="https://www.hello-algo.com/index.assets/animation.gif" width="389">
-  <img src="https://www.hello-algo.com/index.assets/running_code.gif" width="389">
+  <img src="/zh-hant/docs/index.assets/animation.gif" width="395">
+  <img src="/zh-hant/docs/index.assets/running_code.gif" width="395">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB">
-  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C">
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02">
-  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4">
-  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8">
-  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138">
-  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30">
-  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6">
-  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2">
-  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000">
-  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC">
-  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF">
-  <img src="https://img.shields.io/badge/Zig-snow?logo=zig&logoColor=F7A41D">
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
+  <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
+  <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
+  <img src="https://img.shields.io/badge/JavaScript-snow?logo=javascript&logoColor=E9CE30" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Go-snow?logo=go&logoColor=00ADD8" alt="Go" />
+  <img src="https://img.shields.io/badge/Swift-snow?logo=swift&logoColor=F05138" alt="Swift" />
+  <img src="https://img.shields.io/badge/Rust-snow?logo=rust&logoColor=000000" alt="Rust" />
+  <img src="https://img.shields.io/badge/Ruby-snow?logo=ruby&logoColor=CC342D" alt="Ruby" />
+  <img src="https://img.shields.io/badge/Kotlin-snow?logo=kotlin&logoColor=7F52FF" alt="Kotlin" />
+  <img src="https://img.shields.io/badge/TypeScript-snow?logo=typescript&logoColor=3178C6" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Dart-snow?logo=dart&logoColor=0175C2" alt="Dart" />
 </p>
 
 <p align="center">
@@ -41,6 +43,10 @@
   繁體中文
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
 </p>
 
 ## 關於本書
@@ -49,7 +55,7 @@
 
 - 全書採用動畫圖解，內容清晰易懂、學習曲線平滑，引導初學者探索資料結構與演算法的知識地圖。
 - 源程式碼可一鍵執行，幫助讀者在練習中提升程式設計技能，瞭解演算法工作原理和資料結構底層實現。
-- 鼓勵讀者互助學習，提問與評論通常可在兩日內得到回覆。
+- 提倡讀者互助學習，歡迎大家在評論區提出問題與分享見解，在交流討論中共同進步。
 
 若本書對您有所幫助，請在頁面右上角點個 Star :star: 支持一下，謝謝！
 
@@ -73,9 +79,9 @@
 
 - [內容修正](https://www.hello-algo.com/chapter_appendix/contribution/)：請您協助修正或在評論區指出語法錯誤、內容缺失、文字歧義、無效連結或程式碼 bug 等問題。
 - [程式碼轉譯](https://github.com/krahets/hello-algo/issues/15)：期待您貢獻各種語言程式碼，已支持 Python、Java、C++、Go、JavaScript 等 12 門程式語言。
-- [中譯英](https://github.com/krahets/hello-algo/issues/914)：誠邀您加入我們的翻譯小組，成員主要來自計算機相關專業、英語專業和英文母語者。
+- 翻譯審閱：歡迎您參與本專案的多語言翻譯與校對工作，幫助更多讀者用母語學習資料結構與演算法。
 
-歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信關聯 `krahets-jyd` 。
+歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信聯繫 `krahets-jyd` 。
 
 感謝本開源書的每一位撰稿人，是他們的無私奉獻讓這本書變得更好，他們是：
 

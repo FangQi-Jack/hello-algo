@@ -7,7 +7,7 @@
 package chapter_stack_and_queue
 
 /* 双向链表节点 */
-class ListNode(var value: Int) {
+class ListNode(var _val: Int) {
     // 节点值
     var next: ListNode? = null // 后继节点引用
     var prev: ListNode? = null // 前驱节点引用
@@ -15,9 +15,9 @@ class ListNode(var value: Int) {
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {
-    private var front: ListNode? = null // 头节点 front ，尾节点 rear
-    private var rear: ListNode? = null
-    private var queSize = 0 // 双向队列的长度
+    private var front: ListNode? = null // 头节点 front
+    private var rear: ListNode? = null // 尾节点 rear
+    private var queSize: Int = 0 // 双向队列的长度
 
     /* 获取双向队列的长度 */
     fun size(): Int {
@@ -64,32 +64,34 @@ class LinkedListDeque {
 
     /* 出队操作 */
     fun pop(isFront: Boolean): Int {
-        if (isEmpty()) throw IndexOutOfBoundsException()
-
-        val value: Int
+        if (isEmpty()) 
+            throw IndexOutOfBoundsException()
+        val _val: Int
+        // 队列长度为 1 时, 头尾指向同一节点
+        if (queSize == 1) {
+            _val = front!!._val
+            front = null
+            rear = null
+        }
         // 队首出队操作
-        if (isFront) {
-            value = front!!.value // 暂存头节点值
+        else if (isFront) {
+            _val = front!!._val // 暂存头节点值
             // 删除头节点
             val fNext = front!!.next
-            if (fNext != null) {
-                fNext.prev = null
-                front!!.next = null
-            }
+            fNext!!.prev = null
+            front!!.next = null
             front = fNext // 更新头节点
             // 队尾出队操作
         } else {
-            value = rear!!.value // 暂存尾节点值
+            _val = rear!!._val // 暂存尾节点值
             // 删除尾节点
             val rPrev = rear!!.prev
-            if (rPrev != null) {
-                rPrev.next = null
-                rear!!.prev = null
-            }
+            rPrev!!.next = null
+            rear!!.prev = null
             rear = rPrev // 更新尾节点
         }
         queSize-- // 更新队列长度
-        return value
+        return _val
     }
 
     /* 队首出队 */
@@ -104,17 +106,14 @@ class LinkedListDeque {
 
     /* 访问队首元素 */
     fun peekFirst(): Int {
-        if (isEmpty()) {
-            throw IndexOutOfBoundsException()
-
-        }
-        return front!!.value
+        if (isEmpty()) throw IndexOutOfBoundsException()
+        return front!!._val
     }
 
     /* 访问队尾元素 */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return rear!!.value
+        return rear!!._val
     }
 
     /* 返回数组用于打印 */
@@ -122,7 +121,7 @@ class LinkedListDeque {
         var node = front
         val res = IntArray(size())
         for (i in res.indices) {
-            res[i] = node!!.value
+            res[i] = node!!._val
             node = node.next
         }
         return res

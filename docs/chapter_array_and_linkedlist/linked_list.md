@@ -166,7 +166,7 @@
     // 构造方法
     class ListNode(x: Int) {
         val _val: Int = x          // 节点值
-        val next: ListNode? = null // 指向下一个节点的引用
+        var next: ListNode? = null // 指向下一个节点的引用
     }
     ```
 
@@ -183,26 +183,6 @@
         @next = next_node
       end
     end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // 链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向下一节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-            }
-        };
-    }
     ```
 
 ## 链表常用操作
@@ -433,23 +413,6 @@
     n3.next = n4
     ```
 
-=== "Zig"
-
-    ```zig title="linked_list.zig"
-    // 初始化链表
-    // 初始化各个节点
-    var n0 = inc.ListNode(i32){.val = 1};
-    var n1 = inc.ListNode(i32){.val = 3};
-    var n2 = inc.ListNode(i32){.val = 2};
-    var n3 = inc.ListNode(i32){.val = 5};
-    var n4 = inc.ListNode(i32){.val = 4};
-    // 构建节点之间的引用
-    n0.next = &n1;
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    ```
-
 ??? pythontutor "可视化运行"
 
     https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E8%A1%A8%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
@@ -635,8 +598,8 @@
     /* 双向链表节点类 */
     class ListNode {
         int val;        // 节点值
-        ListNode next;  // 指向后继节点的引用
-        ListNode prev;  // 指向前驱节点的引用
+        ListNode? next;  // 指向后继节点的引用
+        ListNode? prev;  // 指向前驱节点的引用
         ListNode(this.val, [this.next, this.prev]);  // 构造函数
     }
     ```
@@ -695,8 +658,8 @@
     // 构造方法
     class ListNode(x: Int) {
         val _val: Int = x           // 节点值
-        val next: ListNode? = null  // 指向后继节点的引用
-        val prev: ListNode? = null  // 指向前驱节点的引用
+        var next: ListNode? = null  // 指向后继节点的引用
+        var prev: ListNode? = null  // 指向前驱节点的引用
     }
     ```
 
@@ -717,35 +680,13 @@
     end
     ```
 
-=== "Zig"
-
-    ```zig title=""
-    // 双向链表节点类
-    pub fn ListNode(comptime T: type) type {
-        return struct {
-            const Self = @This();
-
-            val: T = 0, // 节点值
-            next: ?*Self = null, // 指向后继节点的指针
-            prev: ?*Self = null, // 指向前驱节点的指针
-
-            // 构造函数
-            pub fn init(self: *Self, x: i32) void {
-                self.val = x;
-                self.next = null;
-                self.prev = null;
-            }
-        };
-    }
-    ```
-
 ![常见链表种类](linked_list.assets/linkedlist_common_types.png)
 
 ## 链表典型应用
 
 单向链表通常用于实现栈、队列、哈希表和图等数据结构。
 
-- **栈与队列**：当插入和删除操作都在链表的一端进行时，它表现出先进后出的特性，对应栈；当插入操作在链表的一端进行，删除操作在链表的另一端进行，它表现出先进先出的特性，对应队列。
+- **栈与队列**：当插入和删除操作都在链表的一端进行时，它表现的特性为先进后出，对应栈；当插入操作在链表的一端进行，删除操作在链表的另一端进行，它表现的特性为先进先出，对应队列。
 - **哈希表**：链式地址是解决哈希冲突的主流方案之一，在该方案中，所有冲突的元素都会被放到一个链表中。
 - **图**：邻接表是表示图的一种常用方式，其中图的每个顶点都与一个链表相关联，链表中的每个元素都代表与该顶点相连的其他顶点。
 
